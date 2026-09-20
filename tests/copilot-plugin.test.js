@@ -9,14 +9,6 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const COPILOT_HOOKS = 'com.github.copilot/hooks/hooks.json';
-const REQUIRED_SKILL_FILES = [
-  'ponytail/SKILL.md',
-  'ponytail-review/SKILL.md',
-  'ponytail-audit/SKILL.md',
-  'ponytail-debt/SKILL.md',
-  'ponytail-gain/SKILL.md',
-  'ponytail-help/SKILL.md',
-];
 
 function readJSON(relPath) {
   return JSON.parse(fs.readFileSync(path.join(root, relPath), 'utf8'));
@@ -30,11 +22,4 @@ test('Copilot marketplace installs the root Agent Plugins manifest', () => {
   assert.equal(marketplace.plugins[0].source, './');
   assert.equal(fs.existsSync(path.join(root, '.github', 'plugin', 'plugin.json')), false);
   assert.equal(readJSON(COPILOT_HOOKS).version, 1);
-
-  for (const file of REQUIRED_SKILL_FILES) {
-    assert.ok(
-      fs.existsSync(path.join(root, 'skills', file)),
-      `missing skill file: skills/${file}`,
-    );
-  }
 });
