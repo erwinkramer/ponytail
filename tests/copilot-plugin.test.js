@@ -22,14 +22,17 @@ function readJSON(relPath) {
 }
 
 test('copilot plugin command directory includes ponytail-debt', () => {
-  const manifest = readJSON('.github/plugin/plugin.json');
+  const manifest = readJSON('plugin.json');
+  const copilot = manifest.extensions['com.github.copilot'];
   assert.equal(manifest.name, 'ponytail');
-  assert.equal(manifest.commands, 'commands/');
+  assert.equal(copilot.commands, './commands/');
+  assert.equal(copilot.hooks, './hooks/copilot-hooks.json');
+  assert.equal(fs.existsSync(path.join(root, '.github', 'plugin', 'plugin.json')), false);
 
   for (const file of REQUIRED_COMMAND_FILES) {
     assert.ok(
-      fs.existsSync(path.join(root, manifest.commands, file)),
-      `missing command file: ${manifest.commands}${file}`,
+      fs.existsSync(path.join(root, copilot.commands, file)),
+      `missing command file: ${copilot.commands}${file}`,
     );
   }
 });
