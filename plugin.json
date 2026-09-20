@@ -10,11 +10,5 @@
   "homepage": "https://github.com/DietrichGebert/ponytail",
   "repository": "https://github.com/DietrichGebert/ponytail",
   "license": "MIT",
-  "keywords": ["yagni", "minimalism", "code-review", "productivity"],
-  "extensions": {
-    "com.github.copilot": {
-      "commands": "./commands/",
-      "hooks": "./hooks/copilot-hooks.json"
-    }
-  }
+  "keywords": ["yagni", "minimalism", "code-review", "productivity"]
 }
