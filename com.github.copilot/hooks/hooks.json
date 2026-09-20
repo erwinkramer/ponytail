@@ -5,7 +5,7 @@
       {
         "type": "command",
         "bash": "node \"${PLUGIN_ROOT}/hooks/ponytail-activate.js\"",
-        "powershell": "node \"${PLUGIN_ROOT}\\hooks\\ponytail-activate.js\"",
+        "powershell": "node \"$env:PLUGIN_ROOT\\hooks\\ponytail-activate.js\"",
         "timeoutSec": 5
       }
     ],
@@ -13,7 +13,7 @@
       {
         "type": "command",
         "bash": "node \"${PLUGIN_ROOT}/hooks/ponytail-mode-tracker.js\"",
-        "powershell": "node \"${PLUGIN_ROOT}\\hooks\\ponytail-mode-tracker.js\"",
+        "powershell": "node \"$env:PLUGIN_ROOT\\hooks\\ponytail-mode-tracker.js\"",
         "timeoutSec": 5
       }
     ]
